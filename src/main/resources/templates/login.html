@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Employee Login</title>
+<style>
+.myDiv {
+  border: 5px outset oldlace;
+  background-color: darkcyan;
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: lightcyan">
+<div align="center" >
+<div class="myDiv">
+<h1 style="color:lightcyan;">Project Requirement Portal</h1>
+</div>
+				<h3 style="color:darkcyan;">Please login</h3>
+				<form th:action="@{/login}" method="post">
+					<div th:if="${param.error}">
+						<p style="color:red">Invalid User name or Password</p>
+					</div> 	
+					<div th:if="${param.logout}">
+						<p style="color:red">You have been logged out.</p>
+					</div>
+					<div >
+						<label for="username">User name</label>: <input type="text"
+							id="username" name="username" 
+							autofocus="autofocus" placeholder="Username" /><br/><br/>
+					</div>
+					<div>
+						<label for="password">Password</label>: <input type="password"
+							id="password" name="password"
+							placeholder="Password" /><br/><br/>
+					</div>
+							<div>
+								<input type="submit" name="login-submit" id="login-submit"
+									 value="Log In" /><br/><br/>
+							</div>
+					<div>
+						If you are a new user <a href="/" th:href="@{/registration}">Register
+								here</a>
+					</div>
+				</form>
+			</div>
+
+</body>
+</html>

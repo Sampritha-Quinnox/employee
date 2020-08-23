@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>View Project</title>
+<style>
+.myDiv {
+  border: 5px outset oldlace;
+  background-color: darkcyan;
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: lightcyan">
+<div align="center">
+<div class="myDiv">
+<h1 style="color:lightcyan;">Project Requirement Portal</h1>
+</div>
+
+<h2 style="color:maroon"> Project Requirement Post</h2>
+<br/>
+<form action="#" th:action="@{/exit}" th:object="${project}">
+
+
+
+<table border="1" cellpadding="20" width="50%">
+<thead  style="background-color:darkcyan">
+
+			<tr>
+				<th>Project ID</th>
+				<th>Project Name</th>
+				<th>Description</th>	
+				<th>Location</th>
+				<th>vacancy</th>	
+			</tr>
+</thead>
+		
+		<tbody>
+		<tr th:each="project : ${listProject}">
+		<td th:text="${project.id}">Project ID</td>
+		<td th:text="${project.name}">Project Name</td>
+		<td th:text="${project.description}">Description</td>
+		<td th:text="${project.location}">Location</td>
+		<td th:text="${project.vacancy}">vacancy</td>
+	
+        </tr>
+		</tbody>
+		
+		
+				
+	</table>
+	<br/><br/>
+	<button type="submit">exit</button>
+	<br/>	
+	</form>
+</div>
+
+
+</body>
+</html>

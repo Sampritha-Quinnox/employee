@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Project requirement</title>
+<style>
+.myDiv {
+  border: 5px outset oldlace;
+  background-color: darkcyan;
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: lightcyan">
+<div align="center">
+
+<div class="myDiv">
+<h1 style="color:lightcyan;">Project Requirement Portal</h1>
+</div>
+
+<h3 style="color:darkcyan" th:inline="text"> Welcome [[${#httpServletRequest.remoteUser}]] to project requirement portal </h3>
+<h4 style="color:darkcyan"> You can do the following Actions</h4>
+<table border="0" cellpadding="10">
+<tr>
+
+<td>
+<a th:href="@{'/view/'}">Project Requirement Post</a></td></tr>
+<tr>
+<td sec:authorize="hasRole('ROLE_USER')">
+<a th:href="@{'/apply/'}">Apply for Project</a></td></tr>
+
+</table>
+	
+	<br/>	<br/><br/>
+	
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout" />
+	</form>
+</div>
+
+
+</body>
+</html>

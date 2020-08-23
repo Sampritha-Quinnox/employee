@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<style>
+.myDiv {
+  border: 5px outset oldlace;
+  background-color: darkcyan;
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: lightcyan">
+<div align="center">
+<div class="myDiv">
+<h1 style="color:lightcyan;">Project Requirement Portal</h1>
+</div>
+<br/>
+<h2  style="color:darkcyan">Registration Form</h2><br/>
+				<form th:action="@{/registration}" th:object="${user}" method="post">
+
+				<div th:if="${param.success}">
+					<div style="color:red">You've successfully registered</div>
+				</div> 	
+				<div>
+						<label for="username">User Name</label> 
+							  <input type="text" th:field="*{username}" id="username"
+                                placeholder="username"><br/><br/>
+					</div>
+					  <div>
+                         <span style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"><br/>
+                         </span>
+                 </div>
+                 <div>
+						<label>User Role</label> 
+							  <input type="text" th:field="*{role}" id="role" placeholder="role"><br/><br/>
+					</div>
+					<div>
+						<label>Password</label> 
+						<input type="password" th:field="*{password}" id="password"
+                                placeholder="Password" ><br/><br/>
+						
+					</div>
+					<div>
+						<button>Register</button></div><br/><br/>
+						<div>
+						<span>If you are already registered <a href="/" th:href="@{/login}">Login
+								here</a></span>
+					</div>
+
+</form>
+</div>					
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Apply</title>
+<style>
+.myDiv {
+  border: 5px outset oldlace;
+  background-color: darkcyan;
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color: lightcyan">
+<div align="center">
+<div class="myDiv">
+<h1 style="color:lightcyan;">Project Requirement Portal</h1>
+</div><br/>
+<h2 style="color:maroon">Apply for Project Requirement Post</h2>
+<br/>
+<form action="#" th:action="@{/saveapplication}" th:object="${applied}" th:method="post">
+<table border="0" cellpadding="10">
+
+                 <tr>
+					<td>Project Name:</td>
+					<td><input type="text" th:field="*{projectname}"></td>
+				</tr>
+				 <tr>
+					<td>Project ID</td>
+					<td><input type="text" th:field="*{pid}"></td>
+				</tr>
+				 <tr>
+					<td>User name</td>
+					<td><input type="text" th:field="*{name}"></td>
+				</tr>
+                <tr>
+					<td>current project:</td>
+					<td><input type="text" th:field="*{current_project}"></td>
+				</tr>
+				 <tr>
+					<td>Experience</td>
+					<td><input type="text" th:field="*{experience}"></td>
+				</tr>
+				 <tr>
+					<td>Language</td>
+					<td><input type="text" th:field="*{language}"></td>
+				</tr>
+				
+
+</table><br/><br/>
+<button type="submit">Apply</button>
+</form>
+</div>
+
+
+
+</body>
+</html>
