@@ -89,19 +89,21 @@ public class EmpController {
 	
 	
 	
-	@RequestMapping("/apply")
-	public String applyproject(Model model){
+	 @RequestMapping(value = "/apply", method = RequestMethod.GET)
+	    public String apply(Model model) {
+	        model.addAttribute("applied", new Applied());
 
-		Applied applied = new Applied();
-		model.addAttribute("applied", applied);	
-		return "apply";
-	}
+	        return "apply";
+	    }
 	
-	@RequestMapping(value = "/saveapplication", method = RequestMethod.POST)
-	public String saveapplication(@ModelAttribute("applied") Applied applied,Model model) {
-		appliedService.save(applied);
-		return "redirect:/";
-	}
+
+ @RequestMapping(value = "/apply", method = RequestMethod.POST)
+ public String applied(@ModelAttribute("applied") Applied applied, Model model) {
+ 	
+ 	appliedService.save(applied);
+
+     return "redirect:/apply?done";
+ }
 	
 	
 	@RequestMapping("/exitapplied")

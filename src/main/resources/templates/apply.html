@@ -18,7 +18,10 @@
 </div><br/>
 <h2 style="color:maroon">Apply for Project Requirement Post</h2>
 <br/>
-<form action="#" th:action="@{/saveapplication}" th:object="${applied}" th:method="post">
+<form action="#" th:action="@{/apply}" th:object="${applied}" th:method="post">
+<div th:if="${param.done}">
+					<div style="color:red">Applied successfully</div>
+				</div> 
 <table border="0" cellpadding="10">
 
                  <tr>
@@ -48,7 +51,9 @@
 				
 
 </table><br/><br/>
-<button type="submit">Apply</button>
+<button>Apply</button>
+<span>return to home page <a href="/" th:href="@{/}">return
+								here</a></span>
 </form>
 </div>
 
