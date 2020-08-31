@@ -12,9 +12,9 @@ import quinnox.sam.employee.entity.User;
 
 
 
-public class MyUserDetails implements UserDetails {
+public class MyUserDetailsImpl implements UserDetails {
 	private User user;
-	public MyUserDetails(User user)
+	public MyUserDetailsImpl(User user)
 	{
 		this.user=user;
 	}

@@ -15,5 +15,5 @@ phases:
 artifacts:
   files:
     - target/employee.jar
-    - appspec.yml
+    
   discard-paths: yes
